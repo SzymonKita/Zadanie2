@@ -1,0 +1,17 @@
+{
+  "name": "zadanie1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Szymon Kita",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "os": "^0.1.2",
+    "request-ip": "^2.1.3",
+    "geoip-lite": "^1.4.2"
+  }
+}
