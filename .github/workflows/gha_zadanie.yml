@@ -64,6 +64,7 @@ jobs:
         with:
           command: compare
           image: ${{ steps.build.outputs.tags }}
+          to-env: production
           ignore-unchanged: true
           only-severities: critical,high
           github-token: ${{ secrets.GITHUB_TOKEN }}
