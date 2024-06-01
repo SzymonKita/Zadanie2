@@ -62,7 +62,7 @@ jobs:
         id: scout
         uses: docker/scout-action@v1
         with:
-          command: compare
+          command: sbom
           image: ${{ steps.build.outputs.tags }}
           to-env: production
           ignore-unchanged: true
