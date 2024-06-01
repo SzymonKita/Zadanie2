@@ -1,8 +1,5 @@
-# PAwChO - przekład wykorzystania Github Actions 
-
-Bardzo prosta aplikacja: serwer http ze statyczną stroną www 
-Plik "./github/workflows/gha_w4.yml" definiuje:
-pipeline GitHub Actions 
-- budowanie obrazu multiarch, 
-- przesłanie na Dockerhub z nowym tagiem, 
-- wykorzystanie cache
+# Zadanie2
+Dodano następujące kroki:
+- Docker Scout scan: skanowanie obrazu przy pomocy Docker Scout
+- Login to GitHub Container Registry: logowanie do ghcr.io
+- Build and push Docker image to GHCR: budowanie obrazu z pamięci cache oraz zapisywanie do niej
