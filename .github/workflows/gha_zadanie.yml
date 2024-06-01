@@ -8,7 +8,7 @@ on:
 
 jobs:
   ci_step:
-    name: Build, tag and push Docker image to DockerHub
+    name: Build, tag and push Docker image to DockerHub and GHCR
     runs-on: ubuntu-latest
       
     steps:
@@ -43,7 +43,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - 
-        name: Build and push Docker image
+        name: Build and push Docker image to DockerHub
         id: build
         uses: docker/build-push-action@v5
         with:
@@ -78,15 +78,13 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - 
-        name: Push Docker image to GHCR
+        name: Build and push Docker image to GHCR
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
+          tags: ghcr.io/szymonkita/zadanie2:latest
           cache-from: |
-            type=registry,ref=ghcr.io/szymonkita/zadanie2/zadanie2:cache 
+            type=registry,ref=ghcr.io/szymonkita/zadanie2:cache 
           cache-to: |
-            type=registry,ref=ghcr.io/szymonkita/zadanie2/zadanie2:cache  
-          tags: ghcr.io/szymonkita/zadanie2/zadanie2:latest
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
+            type=registry,ref=ghcr.io/szymonkita/zadanie2:cache  
