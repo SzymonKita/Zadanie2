@@ -62,23 +62,14 @@ jobs:
         id: scout
         uses: docker/scout-action@v1
         with:
-          image: ${{ steps.build.outputs.image }}
-          token: ${{ secrets.DOCKER_SCOUT_TOKEN }}
-
-      - 
-        name: Evaluate CVE Scan Results
-        run: |
-          SEVERITIES="CRITICAL,HIGH"
-          if docker scout report ${{ steps.build.outputs.image }} --exit-code --only-severities $SEVERITIES; then
-            echo "No critical or high severity vulnerabilities found."
-          else
-            echo "Critical or high severity vulnerabilities found. Failing the job."
-            exit 1
-          fi
+          command: compare
+          image: ${{ steps.build.outputs.tags }}
+          ignore-unchanged: true
+          ony-severities: critical,high
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - 
         name: Login to GHCR
-        if: success()
         uses: docker/login-action@v3
         with:
           username: ${{ github.actor }}
@@ -86,7 +77,6 @@ jobs:
 
       - 
         name: Push Docker image to GHCR
-        if: success()
         uses: docker/build-push-action@v5
         with:
           context: .
