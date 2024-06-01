@@ -89,6 +89,6 @@ jobs:
             type=registry,ref=ghcr.io/szymonkita/zadanie2/zadanie2:cache 
           cache-to: |
             type=registry,ref=ghcr.io/szymonkita/zadanie2/zadanie2:cache  
-          tags: ghcr.io/${{ github.repository }}/zadanie2:latest
+          tags: ghcr.io/szymonkita/zadanie2/zadanie2:latest
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
