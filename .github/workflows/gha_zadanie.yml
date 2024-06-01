@@ -89,4 +89,4 @@ jobs:
             type=registry,ref=ghcr.io/szymonkita/zadanie2:cache 
           cache-to: |
             type=registry,ref=ghcr.io/szymonkita/zadanie2:cache  
-          tags: ghcr.io/szymonkita/zadanie2:latest,ghcr.io/szymonkita/zadanie2:${{ steps.meta.outputs.tags }}
+          tags: ghcr.io/szymonkita/zadanie2:latest
