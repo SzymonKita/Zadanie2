@@ -91,4 +91,6 @@ jobs:
             type=registry,ref=ghcr.io/szymonkita/zadanie2/zadanie2:cache  
           tags: szymonkita/zadanie2/zadanie2:latest
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          secrets: |
+            GIT_AUTH_TOKEN = ${{ secrets.GITHUB_TOKEN }}
 
