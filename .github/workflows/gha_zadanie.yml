@@ -86,7 +86,6 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           cache-from: |
-            type=registry,ref=ghcr.io/szymonkita/zadanie2:cache 
+            type=registry,ref=ghcr.io/szymonkita/zadanie2/zadanie2:cache 
           cache-to: |
-            type=registry,ref=ghcr.io/szymonkita/zadanie2:cache  
-          tags: ghcr.io/szymonkita/zadanie2:latest
+            type=registry,ref=ghcr.io/szymonkita/zadanie2/zadanie2:cache  
